@@ -1,31 +1,30 @@
-# SecOps Automation Toolkit 🛡️
+# Threat Intelligence Feed Aggregator 🛰️
 
-![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge&logo=github-actions)
-![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue?style=for-the-badge&logo=python)
+![Feed Status](https://img.shields.io/badge/threat__feed-active-brightgreen?style=for-the-badge)
+![Cron Sync](https://img.shields.io/badge/sync-daily%2002:00%20UTC-blue?style=for-the-badge)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Security Scanned](https://img.shields.io/badge/security-trufflehog%20passed-blueviolet?style=for-the-badge)
 
-A curated collection of lightweight automation scripts, log parsers, and threat intelligence helpers designed for daily Security Operations Center (SOC) and DevSecOps tasks.
+Automated OSINT threat intelligence collection tool that fetches, deduplicates, and formats public IOC (Indicators of Compromise) feeds for Firewall, Nginx, and SIEM ingestion.
 
-## 🚀 Modules
+## 📌 Features
 
-### 1. Log Analysis (`/log_analysis`)
-Utility scripts to quickly identify anomalies, brute-force attempts, and high-frequency requesters from Web Server logs (Nginx, Apache).
+- **Daily Auto-Sync:** Automated GitHub Actions cron job running daily feed aggregation at 02:00 UTC.
+- **Multi-Source OSINT:** Aggregates indicators from public sources (Feodo Tracker, URLhaus, AbuseIPDB).
+- **SIEM & Firewall Ready:** Formats raw outputs into clean blocklists compatible with Palo Alto, Fortinet, and Nginx.
 
-### 2. Threat Intel Quick-Check (`/threat_intel`)
-CLI tools to query public IP/Domain reputation APIs (VirusTotal, AbuseIPDB) directly from the terminal during incident triage.
+## 📁 Repository Structure
 
-### 3. DevSecOps Hooks (`/ci_cd_hooks`)
-Pre-commit bash scripts to prevent accidental commits of high-entropy strings and credentials into internal codebases.
+```text
+threat-intelligence-feed-aggregator/
+├── .github/workflows/   # Daily automated sync action
+├── collectors/          # Python scripts querying OSINT APIs
+└── feeds/               # Formatted blocklists (IPs, Hashes, Domains)
 
-## 🛠️ Quick Start
+## 🛠️ Usage
+To manually trigger the feed collector and update local blocklists:
+# Clone repository
+git clone [https://github.com/TP-TR-InfoSec/threat-intelligence-feed-aggregator.git](https://github.com/TP-TR-InfoSec/threat-intelligence-feed-aggregator.git)
 
-```bash
-# Clone the repository
-git clone [https://github.com/TP-TR-InfoSec/sec-ops-automation-toolkit.git](https://github.com/TP-TR-InfoSec/sec-ops-automation-toolkit.git)
-
-# Navigate to desired module
-cd sec-ops-automation-toolkit/threat_intel
-
-# Run IP reputation check
-python check_ip_reputation.py 8.8.8.8
+# Run collector script
+python collectors/fetch_public_feeds.py
