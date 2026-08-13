@@ -1,30 +1,31 @@
-# Threat Intelligence Feed Aggregator 🛰️
+# SecOps Automation Toolkit 🛡️
 
-![Feed Status](https://img.shields.io/badge/threat__feed-active-brightgreen?style=for-the-badge)
-![Cron Sync](https://img.shields.io/badge/sync-daily%2002:00%20UTC-blue?style=for-the-badge)
+![Build Status](https://img.shields.io/badge/build-passing-brightgreen?style=for-the-badge&logo=github-actions)
+![Python](https://img.shields.io/badge/python-3.10%20%7C%203.11-blue?style=for-the-badge&logo=python)
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Security Scanned](https://img.shields.io/badge/security-trufflehog%20passed-blueviolet?style=for-the-badge)
 
-Automated OSINT threat intelligence collection tool that fetches, deduplicates, and formats public IOC (Indicators of Compromise) feeds for Firewall, Nginx, and SIEM ingestion.
+A curated collection of lightweight automation scripts, log parsers, and threat intelligence helpers designed for daily Security Operations Center (SOC) and DevSecOps tasks.
 
-## 📌 Features
+## 🚀 Modules
 
-- **Daily Auto-Sync:** Automated GitHub Actions cron job running daily feed aggregation at 02:00 UTC.
-- **Multi-Source OSINT:** Aggregates indicators from public sources (Feodo Tracker, URLhaus, AbuseIPDB).
-- **SIEM & Firewall Ready:** Formats raw outputs into clean blocklists compatible with Palo Alto, Fortinet, and Nginx.
+### 1. Log Analysis (`/log_analysis`)
+Utility scripts to quickly identify anomalies, brute-force attempts, and high-frequency requesters from Web Server logs (Nginx, Apache).
 
-## 📁 Repository Structure
+### 2. Threat Intel Quick-Check (`/threat_intel`)
+CLI tools to query public IP/Domain reputation APIs (VirusTotal, AbuseIPDB) directly from the terminal during incident triage.
 
-```text
-threat-intelligence-feed-aggregator/
-├── .github/workflows/   # Daily automated sync action
-├── collectors/          # Python scripts querying OSINT APIs
-└── feeds/               # Formatted blocklists (IPs, Hashes, Domains)
+### 3. DevSecOps Hooks (`/ci_cd_hooks`)
+Pre-commit bash scripts to prevent accidental commits of high-entropy strings and credentials into internal codebases.
 
-## 🛠️ Usage
-To manually trigger the feed collector and update local blocklists:
-# Clone repository
-git clone [https://github.com/TP-TR-InfoSec/threat-intelligence-feed-aggregator.git](https://github.com/TP-TR-InfoSec/threat-intelligence-feed-aggregator.git)
+## 🛠️ Quick Start
 
-# Run collector script
-python collectors/fetch_public_feeds.py
+```bash
+# Clone the repository
+git clone [https://github.com/TP-TR-InfoSec/sec-ops-automation-toolkit.git](https://github.com/TP-TR-InfoSec/sec-ops-automation-toolkit.git)
+
+# Navigate to desired module
+cd sec-ops-automation-toolkit/threat_intel
+
+# Run IP reputation check
+python check_ip_reputation.py 8.8.8.8
