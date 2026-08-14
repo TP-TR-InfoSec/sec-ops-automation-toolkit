@@ -29,3 +29,4 @@ cd sec-ops-automation-toolkit/threat_intel
 
 # Run IP reputation check
 python check_ip_reputation.py 8.8.8.8
+
