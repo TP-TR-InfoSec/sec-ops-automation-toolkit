@@ -5,7 +5,7 @@
 ![License](https://img.shields.io/badge/license-MIT-green?style=for-the-badge)
 ![Security Scanned](https://img.shields.io/badge/security-trufflehog%20passed-blueviolet?style=for-the-badge)
 
-A curated collection of lightweight automation scripts, log parsers, and threat intelligence helpers designed for daily Security Operations Center (SOC) and DevSecOps tasks.
+A curated collection of lightweight automation scripts, log parsers, and threat intelligence helpers designed for daily Security Operations Center (SOC) and DevSecOps tasks. 
 
 ## 🚀 Modules
 
